@@ -13,12 +13,12 @@
 
 <body>
     <h1>Laravel API frontend</h1>
-    <div>
-        <form action="/api/login">
+    <div class="container">
+        <form action="/login" id="login-form">
             <label for="email">Input email:</label>
             <input type="text" name="email" id="email"> <br>
             <label for="email">Input password:</label>
-            <input type="text" name="password" id="password" type="hidden">
+            <input type="password" name="password" id="password" type="hidden">
             <input type="submit" value="Login"> <br>
             <label for="email">Your token:</label>
             <div id="user-token"></div>

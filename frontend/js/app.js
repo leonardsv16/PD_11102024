@@ -64,6 +64,35 @@ window.onload = function() {
         }
     });
 
+  //logins
+   async function loginUserGetToken(token) {
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/login', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            const tokens = await response.json();
+
+            if (response.ok) {
+                const loginContainer = document.getElementById('user-token');
+                loginContainer.innerHTML = '';
+                tokens.forEach(post => {
+                    loginContainer.innerHTML += `
+                        <div class="user-token">
+                            <p>Token: ${user.token}</p>
+                        </div>
+                    `;
+                });
+            
+            }
+     } catch (error) {
+        console.log(error);
+    }
+}
+
     async function fetchAllPosts(token) {
         try {
             const response = await fetch('http://127.0.0.1:8000/api/posts', {
@@ -73,6 +102,7 @@ window.onload = function() {
                     'Content-Type': 'application/json'
                 }
             });
+            
 
             const posts = await response.json();
 

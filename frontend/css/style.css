@@ -38,6 +38,7 @@ h1 {
 }
 
 .container input[type="text"],
+.container input[type="password"],
 .container textarea,
 .container input[type="submit"] {
     width: 100%;
