@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller implements HasMiddleware
 {
-    public static function middleware() {
+    public static function middleware()
+    {
         return [
             new Middleware('auth:sanctum', except: ['index', 'show'])
         ];
@@ -27,8 +28,9 @@ class PostController extends Controller implements HasMiddleware
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Post $post)
     {
+        Gate::authorize('modify', $post);
         $fields = $request->validate([
             'title' => 'required|max:255',
             'body' => 'required'

@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Front</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js"></script>
 </head>
+
+
 <body>
     <h1>Laravel API frontend</h1>
 
@@ -13,8 +19,8 @@
         <form action="/api/user" method="get" id="get-user-form">
             <label for="token">Token</label>
             <input type="text" name="token" id="token">
-
             <input type="submit" value="Get">
+            <div id="user-data"></div>
         </form>
     </div>
 
@@ -38,5 +44,7 @@
         <h2>Posts</h2>
         <div id="user-posts"></div>
     </div>
+
 </body>
+
 </html>
